@@ -1,0 +1,156 @@
+:root {
+    --main-color: rgb(2, 5, 57);
+    --lite-color: rgb(71, 73, 120);
+    --white-color: antiquewhite;
+    --default-border-radius: 8px;
+    --transition-time: .25s;
+    --scrollbar-color: rgba(255, 255, 255, 0.3);
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--main-color);
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 50px auto 100px;
+    grid-template-areas:
+        ". nav nav nav nav nav nav nav nav nav nav ."
+        "cont cont cont cont cont cont cont cont cont cont cont cont"
+        "txt txt txt txt txt txt txt txt txt txt txt txt";
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: nav;
+    background-color: var(--lite-color);
+    border-radius: var(--default-border-radius);
+    margin: 5px;
+}
+
+header h1 {
+    text-shadow: 0px 5px var(--main-color);
+    color: var(--white-color);
+    transition: var(--transition-time);
+}
+
+.content {
+    grid-area: cont;
+    background-color: var(--lite-color);
+    box-shadow: inset 3px 3px 3px var(--main-color);
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    max-height: 70vh;
+    border-radius: var(--default-border-radius);
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-color) transparent;
+}
+
+.content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, var(--main-color), var(--lite-color));
+    border-radius: 10px;
+}
+
+.content::-webkit-scrollbar-track {
+    background: transparent;
+}
+.content p {
+    margin-bottom: 10px;
+}
+
+.content a {
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.content h1, .content h2, .content h3 {
+    color: var(--main-color);
+    margin-bottom: 10px;
+}
+
+.message {
+    align-self: flex-start;
+    background-color: var(--white-color);
+    padding: 10px;
+    border-radius: var(--default-border-radius);
+    max-width: 50%;
+    margin-bottom: 10px;
+}
+
+.prompt {
+    align-self: flex-end;
+    background-color: var(--main-color);
+    color: var(--white-color);
+}
+
+.text-area {
+    grid-area: txt;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+}
+
+.text-area textarea {
+    grid-column: 2 / span 9;
+    border: none;
+    border-radius: var(--default-border-radius);
+    padding: 12px 16px;
+    overflow-y: auto;
+    outline: none;
+    resize: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-color) transparent;
+}
+
+.text-area textarea::-webkit-scrollbar {
+    width: 14px;
+}
+
+.text-area textarea::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color);
+    border-radius: 10px;
+}
+
+.text-area textarea::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.send-btn {
+    border: none;
+    padding: 10px;
+    width: 100px;
+    border-radius: var(--default-border-radius);
+    background-color: var(--white-color);
+    transition: var(--transition-time);
+}
+
+.send-btn:hover {
+    color: var(--main-color);
+    text-shadow: 1px 1px var(--lite-color);
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: footer;
+    background-color: black;
+    color: aliceblue;
+}
